@@ -1,0 +1,8 @@
+lib/
+_skbuild/
+build/
+dist/
+chemfiles.egg-info/
+.tox/
+MANIFEST
+.coverage

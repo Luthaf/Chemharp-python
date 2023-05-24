@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python interface reference &mdash; Python interface to chemfiles 0.5.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python interface to chemfiles 0.5.0 documentation" href="index.html" />
+    <link rel="prev" title="Usage examples" href="examples.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Python interface to chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python interface reference</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Python interface reference</a><ul>
+<li><a class="reference internal" href="#module-chemfiles.logging">Error and logging functions</a></li>
+<li><a class="reference internal" href="#trajectory-class">Trajectory class</a></li>
+<li><a class="reference internal" href="#frame-class">Frame class</a></li>
+<li><a class="reference internal" href="#unitcell-class">UnitCell class</a></li>
+<li><a class="reference internal" href="#topology-class">Topology class</a></li>
+<li><a class="reference internal" href="#atom-class">Atom class</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="examples.html" title="Previous Chapter: Usage examples"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Usage examples</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/reference.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="python-interface-reference">
+<span id="python-api"></span><h1>Python interface reference<a class="headerlink" href="#python-interface-reference" title="Permalink to this headline">¶</a></h1>
+<p>The Python interface is built on top of the C interface, using the <a class="reference external" href="https://docs.python.org/3/library/ctypes.html">ctypes</a>
+standard module.</p>
+<p>This interface is contained in the <a class="reference internal" href="#module-chemfiles" title="chemfiles"><code class="xref py py-mod docutils literal"><span class="pre">chemfiles</span></code></a> module, and this page list all
+the classes and methods in this module.</p>
+<div class="section" id="module-chemfiles.logging">
+<span id="error-and-logging-functions"></span><h2>Error and logging functions<a class="headerlink" href="#module-chemfiles.logging" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.logging.LogLevel">
+<em class="property">class </em><code class="descclassname">chemfiles.logging.</code><code class="descname">LogLevel</code><a class="headerlink" href="#chemfiles.logging.LogLevel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Available log levels:</dt>
+<dd><ul class="first last simple">
+<li>ERROR: Only log errors</li>
+<li>WARNING: Log errors and warnings</li>
+<li>INFO: Log errors, warnings and informations</li>
+<li>DEBUG: Log everything, from errors to debug informations</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.logging.log_callback">
+<code class="descclassname">chemfiles.logging.</code><code class="descname">log_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.logging.log_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use a callback for logging, instead of the built-in logging system.</p>
+<dl class="docutils">
+<dt>The <code class="docutils literal"><span class="pre">callback</span></code> function must have the following signature:</dt>
+<dd><dl class="first last docutils">
+<dt>def callback(level, message):</dt>
+<dd>...
+return None</dd>
+</dl>
+</dd>
+</dl>
+<p>where <code class="docutils literal"><span class="pre">level</span></code> is a <code class="docutils literal"><span class="pre">LogLevel</span></code>, and message a string containing the log
+message.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.logging.log_level">
+<code class="descclassname">chemfiles.logging.</code><code class="descname">log_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.logging.log_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current logging level</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.logging.log_to_file">
+<code class="descclassname">chemfiles.logging.</code><code class="descname">log_to_file</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.logging.log_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write logs to the file at <code class="docutils literal"><span class="pre">path</span></code>, creating it if needed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.logging.log_to_stderr">
+<code class="descclassname">chemfiles.logging.</code><code class="descname">log_to_stderr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.logging.log_to_stderr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write logs to the standard error stream. This is the default.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.logging.log_to_stdout">
+<code class="descclassname">chemfiles.logging.</code><code class="descname">log_to_stdout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.logging.log_to_stdout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write logs to the standard error stream. This is the default.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.logging.set_log_level">
+<code class="descclassname">chemfiles.logging.</code><code class="descname">set_log_level</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.logging.set_log_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the logging level to <code class="docutils literal"><span class="pre">level</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.logging.silent">
+<code class="descclassname">chemfiles.logging.</code><code class="descname">silent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.logging.silent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write logs to the standard error stream. This is the default.</p>
+</dd></dl>
+
+<span class="target" id="module-chemfiles.errors"></span><dl class="exception">
+<dt id="chemfiles.errors.ArgumentError">
+<em class="property">exception </em><code class="descclassname">chemfiles.errors.</code><code class="descname">ArgumentError</code><a class="headerlink" href="#chemfiles.errors.ArgumentError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error in argument type</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="chemfiles.errors.CPPException">
+<em class="property">exception </em><code class="descclassname">chemfiles.errors.</code><code class="descname">CPPException</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.errors.CPPException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error in C++ runtime</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="chemfiles.errors.ChemfilesException">
+<em class="property">exception </em><code class="descclassname">chemfiles.errors.</code><code class="descname">ChemfilesException</code><a class="headerlink" href="#chemfiles.errors.ChemfilesException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all Chemfiles exceptions</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="chemfiles.errors.NullPointerError">
+<em class="property">exception </em><code class="descclassname">chemfiles.errors.</code><code class="descname">NullPointerError</code><a class="headerlink" href="#chemfiles.errors.NullPointerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Got a NULL pointer from C!</p>
+</dd></dl>
+
+</div>
+<div class="section" id="trajectory-class">
+<h2>Trajectory class<a class="headerlink" href="#trajectory-class" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-chemfiles"></span><dl class="class">
+<dt id="chemfiles.Trajectory">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Trajectory</code><span class="sig-paren">(</span><em>path</em>, <em>mode='r'</em>, <em>fformat=''</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Trajectory is a chemistry file on the hard drive. It is the main entry
+point of Chemfiles.</p>
+<dl class="method">
+<dt id="chemfiles.Trajectory.nsteps">
+<code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.nsteps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of steps (the number of frames) in a trajectory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.read">
+<code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next step of the trajectory and return the corresponding frame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.read_step">
+<code class="descname">read_step</code><span class="sig-paren">(</span><em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.read_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a specific step in the trajectory and return the corresponding
+frame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.set_cell">
+<code class="descname">set_cell</code><span class="sig-paren">(</span><em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.set_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the unit cell associated with a trajectory. This cell will be used
+when reading and writing the files, replacing any unit cell in the
+frames or files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.set_topology">
+<code class="descname">set_topology</code><span class="sig-paren">(</span><em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.set_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the topology associated with a trajectory. This topology will be
+used when reading and writing the files, replacing any topology in the
+frames or files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.set_topology_file">
+<code class="descname">set_topology_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.set_topology_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the topology associated with a trajectory by reading the first
+frame of <code class="docutils literal"><span class="pre">filename</span></code>; and extracting the topology of this frame.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronize any buffered content to the hard drive.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a frame to the trajectory</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="frame-class">
+<h2>Frame class<a class="headerlink" href="#frame-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.Frame">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Frame</code><span class="sig-paren">(</span><em>natoms=0</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <cite>Frame</cite> holds data from one step of a simulation: the current <cite>Topology</cite>,
+the positions, and maybe the velocities of the particles in the system.</p>
+<dl class="method">
+<dt id="chemfiles.Frame.add_velocities">
+<code class="descname">add_velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add velocity information to this <code class="docutils literal"><span class="pre">Frame</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.atom">
+<code class="descname">atom</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a specific <code class="docutils literal"><span class="pre">Atom</span></code> from a frame, given its <cite>index</cite> in the frame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.cell">
+<code class="descname">cell</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <cite>UnitCell</cite> from the <code class="docutils literal"><span class="pre">Frame</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.guess_topology">
+<code class="descname">guess_topology</code><span class="sig-paren">(</span><em>bonds=True</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.guess_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to guess the bonds, angles and dihedrals in the system. If
+<code class="docutils literal"><span class="pre">bonds</span></code> is True, guess everything; else only guess the angles and
+dihedrals from the topology bond list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.has_velocities">
+<code class="descname">has_velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.has_velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the <code class="docutils literal"><span class="pre">Frame</span></code> has velocity information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.natoms">
+<code class="descname">natoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.natoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current number of atoms in the <code class="docutils literal"><span class="pre">Frame</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.positions">
+<code class="descname">positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a view into the positions of the <code class="docutils literal"><span class="pre">Frame</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.resize">
+<code class="descname">resize</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the positions from the <code class="docutils literal"><span class="pre">Frame</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.set_cell">
+<code class="descname">set_cell</code><span class="sig-paren">(</span><em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.set_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <cite>UnitCell</cite> of the <cite>Frame</cite></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.set_step">
+<code class="descname">set_step</code><span class="sig-paren">(</span><em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.set_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <code class="docutils literal"><span class="pre">Frame</span></code> step</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.set_topology">
+<code class="descname">set_topology</code><span class="sig-paren">(</span><em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.set_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <cite>Topology</cite> of the <cite>Frame</cite></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.step">
+<code class="descname">step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <code class="docutils literal"><span class="pre">Frame</span></code> step, i.e. the frame number in the trajectory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.topology">
+<code class="descname">topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <code class="docutils literal"><span class="pre">Topology</span></code> from the <code class="docutils literal"><span class="pre">Frame</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.velocities">
+<code class="descname">velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a view into the velocities of the <code class="docutils literal"><span class="pre">Frame</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="unitcell-class">
+<h2>UnitCell class<a class="headerlink" href="#unitcell-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.CellType">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">CellType</code><a class="headerlink" href="#chemfiles.CellType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Available cell types in Chemfiles:</dt>
+<dd><ul class="first last simple">
+<li>Orthorombic: The three angles are 90°</li>
+<li>Triclinic: The three angles may not be 90°</li>
+<li>Infinite: Cell type when there is no periodic boundary conditions</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="chemfiles.UnitCell">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">UnitCell</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em>, <em>alpha=90.0</em>, <em>beta=90.0</em>, <em>gamma=90.0</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>An <code class="docutils literal"><span class="pre">UnitCell</span></code> represent the box containing the atoms in the system, and
+its periodicity.</p>
+<p>A unit cell is fully represented by three lenghts (a, b, c); and three
+angles (alpha, beta, gamma). The angles are stored in degrees, and the
+lenghts in Angstroms. A cell also has a matricial representation, by
+projecting the three base vector into an orthonormal base. We choose to
+represent such matrix as an upper triangular matrix:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">a_x   b_x   c_x |</div>
+<div class="line-block">
+<div class="line">0    b_y   c_y |</div>
+<div class="line">0     0    c_z |</div>
+</div>
+</div>
+</div></blockquote>
+<p>An unit cell also have a cell type, represented by the <cite>CellType</cite> class.</p>
+<dl class="method">
+<dt id="chemfiles.UnitCell.angles">
+<code class="descname">angles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the three angles of an <code class="docutils literal"><span class="pre">UnitCell</span></code>, in degrees.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.lengths">
+<code class="descname">lengths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the three lenghts of an <code class="docutils literal"><span class="pre">UnitCell</span></code>, in Angstroms.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.matrix">
+<code class="descname">matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the unit cell matricial representation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.set_angles">
+<code class="descname">set_angles</code><span class="sig-paren">(</span><em>alpha</em>, <em>beta</em>, <em>gamma</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.set_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the three angles of an <code class="docutils literal"><span class="pre">UnitCell</span></code>, in degrees. This is only
+possible with <code class="docutils literal"><span class="pre">TRICLINIC</span></code> cells.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.set_lengths">
+<code class="descname">set_lengths</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.set_lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the three lenghts of an <code class="docutils literal"><span class="pre">UnitCell</span></code>, in Angstroms.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.set_type">
+<code class="descname">set_type</code><span class="sig-paren">(</span><em>celltype</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.set_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the type of the unit cell</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.type">
+<code class="descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the type of the unit cell</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.volume">
+<code class="descname">volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the volume of the unit cell</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topology-class">
+<h2>Topology class<a class="headerlink" href="#topology-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.Topology">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Topology</code><a class="headerlink" href="#chemfiles.Topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <cite>Topology</cite> contains the definition of all the particles in the system,
+and the liaisons between the particles (bonds, angles, dihedrals, ...).</p>
+<p>Only the atoms and the bonds are stored, the angles and the dihedrals are
+computed automaticaly.</p>
+<dl class="method">
+<dt id="chemfiles.Topology.add_bond">
+<code class="descname">add_bond</code><span class="sig-paren">(</span><em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.add_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a bond between the atoms at indexes <code class="docutils literal"><span class="pre">i</span></code> and <code class="docutils literal"><span class="pre">j</span></code> in the system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.angles">
+<code class="descname">angles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of angles in the system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.angles_count">
+<code class="descname">angles_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.angles_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of angles in the system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>atom</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an <code class="docutils literal"><span class="pre">Atom</span></code> at the end of the <code class="docutils literal"><span class="pre">Topology</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.atom">
+<code class="descname">atom</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <code class="docutils literal"><span class="pre">Atom</span></code> at <code class="docutils literal"><span class="pre">index</span></code> from a topology.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.bonds">
+<code class="descname">bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of bonds in the system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.bonds_count">
+<code class="descname">bonds_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.bonds_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of bonds in the system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.dihedrals">
+<code class="descname">dihedrals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.dihedrals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of dihedral angles in the system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.dihedrals_count">
+<code class="descname">dihedrals_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.dihedrals_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of dihedral angles in the system</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.isangle">
+<code class="descname">isangle</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.isangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell if the atoms at indexes <code class="docutils literal"><span class="pre">i</span></code>, <code class="docutils literal"><span class="pre">j</span></code> and <code class="docutils literal"><span class="pre">k</span></code> constitues an angle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.isbond">
+<code class="descname">isbond</code><span class="sig-paren">(</span><em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.isbond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell if the atoms at indexes <code class="docutils literal"><span class="pre">i</span></code> and <code class="docutils literal"><span class="pre">j</span></code> are bonded together</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.isdihedral">
+<code class="descname">isdihedral</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em>, <em>m</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.isdihedral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell if the atoms at indexes <code class="docutils literal"><span class="pre">i</span></code>, <code class="docutils literal"><span class="pre">j</span></code>, <code class="docutils literal"><span class="pre">k</span></code> and <code class="docutils literal"><span class="pre">m</span></code> constitues a
+dihedral angle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.natoms">
+<code class="descname">natoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.natoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current number of atoms in the <code class="docutils literal"><span class="pre">Topology</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an <code class="docutils literal"><span class="pre">Atom</span></code> from the <code class="docutils literal"><span class="pre">Topology</span></code> by index. This modify all the
+other atoms indexes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.remove_bond">
+<code class="descname">remove_bond</code><span class="sig-paren">(</span><em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.remove_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove any existing bond between the atoms at indexes <code class="docutils literal"><span class="pre">i</span></code> and <code class="docutils literal"><span class="pre">j</span></code>
+in the system</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="atom-class">
+<h2>Atom class<a class="headerlink" href="#atom-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.AtomType">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">AtomType</code><a class="headerlink" href="#chemfiles.AtomType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Available types of atoms:</dt>
+<dd><ul class="first last">
+<li><p class="first">Element: Element from the periodic table of elements</p>
+</li>
+<li><dl class="first docutils">
+<dt>CorseGrain: Corse-grained atom are composed of more than one element:</dt>
+<dd><p class="first last">CH3 groups, amino-acids are corse-grained atoms.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Dummy: Dummy site, with no physical reality</p>
+</li>
+<li><p class="first">Undefined: Undefined atom type</p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="chemfiles.Atom">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Atom</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Atom is a particle in the current Frame. It can be used to store and
+retrieve informations about a particle, such as mass, name, atomic number,
+<em>etc.</em></p>
+<dl class="method">
+<dt id="chemfiles.Atom.atomic_number">
+<code class="descname">atomic_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.atomic_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the atomic number of the <cite>Atom</cite>. If the number can not be
+found, returns -1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.charge">
+<code class="descname">charge</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <code class="docutils literal"><span class="pre">Atom</span></code> charge, in number of the electron charge <em>e</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.covalent_radius">
+<code class="descname">covalent_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.covalent_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the covalent radius of the <cite>Atom</cite>. If the radius can not be
+found, returns -1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.full_name">
+<code class="descname">full_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the full name of the <cite>Atom</cite>. The full name of &#8220;He&#8221; is
+&#8220;Helium&#8221;, and so on. If the name can not be found, returns the empty
+string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.mass">
+<code class="descname">mass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <code class="docutils literal"><span class="pre">Atom</span></code> mass, in atomic mass units</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.name">
+<code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <code class="docutils literal"><span class="pre">Atom</span></code> name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set_charge">
+<code class="descname">set_charge</code><span class="sig-paren">(</span><em>charge</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set_charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <code class="docutils literal"><span class="pre">Atom</span></code> charge, in number of the electron charge <em>e</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set_mass">
+<code class="descname">set_mass</code><span class="sig-paren">(</span><em>mass</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <code class="docutils literal"><span class="pre">Atom</span></code> mass, in atomic mass units</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <code class="docutils literal"><span class="pre">Atom</span></code> name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set_type">
+<code class="descname">set_type</code><span class="sig-paren">(</span><em>atomtype</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the type of the atom</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.type">
+<code class="descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the type of the atom</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.vdw_radius">
+<code class="descname">vdw_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.vdw_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the Van der Waals radius of the <cite>Atom</cite>. If the radius can
+not be found, returns -1.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux — MPLv2 licence.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

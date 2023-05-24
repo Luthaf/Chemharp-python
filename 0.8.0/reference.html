@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Python interface reference &#8212; Python interface to chemfiles 0.8.0 documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tutorials" href="tutorials.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Python interface to chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python interface reference</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Python interface reference</a><ul>
+<li><a class="reference internal" href="#error-handling">Error handling</a></li>
+<li><a class="reference internal" href="#trajectory-class">Trajectory class</a></li>
+<li><a class="reference internal" href="#frame-class">Frame class</a></li>
+<li><a class="reference internal" href="#unitcell-class">UnitCell class</a></li>
+<li><a class="reference internal" href="#topology-class">Topology class</a></li>
+<li><a class="reference internal" href="#atom-class">Atom class</a></li>
+<li><a class="reference internal" href="#residue-class">Residue class</a></li>
+<li><a class="reference internal" href="#selection-class">Selection class</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="tutorials.html" title="Previous Chapter: Tutorials"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Tutorials</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/reference.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Python interface reference</a><ul>
+<li><a class="reference internal" href="#error-handling">Error handling</a></li>
+<li><a class="reference internal" href="#trajectory-class">Trajectory class</a></li>
+<li><a class="reference internal" href="#frame-class">Frame class</a></li>
+<li><a class="reference internal" href="#unitcell-class">UnitCell class</a></li>
+<li><a class="reference internal" href="#topology-class">Topology class</a></li>
+<li><a class="reference internal" href="#atom-class">Atom class</a></li>
+<li><a class="reference internal" href="#residue-class">Residue class</a></li>
+<li><a class="reference internal" href="#selection-class">Selection class</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="tutorials.html" title="Previous Chapter: Tutorials"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Tutorials</span>
+    </a>
+  </li>
+<div id="sourcelink">
+  <a href="_sources/reference.rst.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9 content">
+      
+  <div class="section" id="python-interface-reference">
+<span id="python-api"></span><h1>Python interface reference<a class="headerlink" href="#python-interface-reference" title="Permalink to this headline">¶</a></h1>
+<p>The Python interface is exposed in the <a class="reference internal" href="#module-chemfiles" title="chemfiles"><code class="xref py py-mod docutils literal notranslate"><span class="pre">chemfiles</span></code></a> module, and this page
+list all the classes and methods in this module.</p>
+<div class="section" id="error-handling">
+<h2>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>Chemfiles uses exceptions for error handling, throwing
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ChemfilesError</span></code> when an
+error occurs.</p>
+<span class="target" id="module-chemfiles.utils"></span><dl class="exception">
+<dt id="chemfiles.utils.ChemfilesError">
+<em class="property">exception </em><code class="descclassname">chemfiles.utils.</code><code class="descname">ChemfilesError</code><a class="headerlink" href="#chemfiles.utils.ChemfilesError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception class for errors in chemfiles</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.utils.set_warnings_callback">
+<code class="descclassname">chemfiles.utils.</code><code class="descname">set_warnings_callback</code><span class="sig-paren">(</span><em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.utils.set_warnings_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call <cite>function</cite> on every warning event. The callback should take a string
+message and return nothing.</p>
+<p>By default, warnings are send to python <cite>warnings</cite> module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chemfiles.utils.add_configuration">
+<code class="descclassname">chemfiles.utils.</code><code class="descname">add_configuration</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.utils.add_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read configuration data from the file at <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<p>By default, chemfiles reads configuration from any file name <cite>.chemfilesrc</cite>
+in the current directory or any parent directory. This function can be used
+to add data from another configuration file.</p>
+<p>This function will fail if there is no file at <code class="docutils literal notranslate"><span class="pre">path</span></code>, or if the file is
+incorectly formatted. Data from the new configuration file will overwrite
+any existing data.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="trajectory-class">
+<h2>Trajectory class<a class="headerlink" href="#trajectory-class" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-chemfiles"></span><dl class="class">
+<dt id="chemfiles.Trajectory">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Trajectory</code><span class="sig-paren">(</span><em>path</em>, <em>mode='r'</em>, <em>format=''</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> is a chemistry file on the hard drive. It is the
+main entry point of Chemfiles.</p>
+<p>Open the <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> at the given <code class="docutils literal notranslate"><span class="pre">path</span></code> using the
+given <code class="docutils literal notranslate"><span class="pre">mode</span></code> and optional specific file <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p>
+<p>Valid modes are <code class="docutils literal notranslate"><span class="pre">'r'</span></code> for read, <code class="docutils literal notranslate"><span class="pre">'w'</span></code> for write and <code class="docutils literal notranslate"><span class="pre">'a'</span></code> for
+append.</p>
+<p>The specific file format is needed when the file format does not match
+the extension, or when there is not standard extension for this format.
+If <cite>format</cite> is an empty string, the format will be guessed from the
+file extension.</p>
+<dl class="method">
+<dt id="chemfiles.Trajectory.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and write any buffered content to the
+hard drive.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.nsteps">
+<code class="descname">nsteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.nsteps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of steps (the number of frames) in a
+<a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next step of the <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and return the
+corresponding <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>. If the <code class="docutils literal notranslate"><span class="pre">frame</span></code> parameter is given,
+reuse the corresponding allocation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.read_step">
+<code class="descname">read_step</code><span class="sig-paren">(</span><em>step</em>, <em>frame=None</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.read_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a specific <code class="docutils literal notranslate"><span class="pre">step</span></code> in the <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and return the
+corresponding <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>. If the <code class="docutils literal notranslate"><span class="pre">frame</span></code> parameter is given,
+reuse the corresponding allocation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.set_cell">
+<code class="descname">set_cell</code><span class="sig-paren">(</span><em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.set_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> associated with a <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.
+This <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> will be used when reading and writing the
+files, replacing any <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> in the frames or files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.set_topology">
+<code class="descname">set_topology</code><span class="sig-paren">(</span><em>topology</em>, <em>format=''</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.set_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> associated with a <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.
+This <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> will be used when reading and writing the
+files, replacing any <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> in the frames or files.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">topology</span></code> is a <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> instance, it is used
+directly. If <code class="docutils literal notranslate"><span class="pre">topology</span></code> is a string, the first <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> of
+the corresponding file is read, and the topology of this frame is used.</p>
+<p>When reading from a file, if <code class="docutils literal notranslate"><span class="pre">format</span></code> is not the empty string, the
+code uses this file format instead of guessing it from the file
+extension.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Trajectory.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> to the <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="frame-class">
+<h2>Frame class<a class="headerlink" href="#frame-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.Frame">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Frame</code><a class="headerlink" href="#chemfiles.Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> contains data from one simulation step: the current
+unit cell, the topology, the positions, and the velocities of the particles
+in the system. If some information is missing (topology or velocity or unit
+cell), the corresponding data is filled with a default value.</p>
+<p>Create an empty <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> that will be resized by the runtime
+as needed.</p>
+<dl class="method">
+<dt id="chemfiles.Frame.add_atom">
+<code class="descname">add_atom</code><span class="sig-paren">(</span><em>atom</em>, <em>position</em>, <em>velocity=None</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a copy of the <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> <code class="docutils literal notranslate"><span class="pre">atom</span></code> and the corresponding
+<code class="docutils literal notranslate"><span class="pre">position</span></code> and <code class="docutils literal notranslate"><span class="pre">velocity</span></code> to this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">velocity</span></code> can be <code class="docutils literal notranslate"><span class="pre">None</span></code> if no velocity is associated with the
+atom.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.add_bond">
+<code class="descname">add_bond</code><span class="sig-paren">(</span><em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in this
+<a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>’s topology.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.add_residue">
+<code class="descname">add_residue</code><span class="sig-paren">(</span><em>residue</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> <code class="docutils literal notranslate"><span class="pre">residue</span></code> to this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>’s
+topology.</p>
+<p>The residue <code class="docutils literal notranslate"><span class="pre">id</span></code> must not already be in the topology, and the residue
+must contain only atoms that are not already in another residue.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.add_velocities">
+<code class="descname">add_velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add velocity data to this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>The velocities are initialized to zero. If the frame already contains
+velocities, this function does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.angle">
+<code class="descname">angle</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the angle formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span></code> in
+this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, accounting for periodic boundary conditions.
+The result is expressed in radians.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.atom">
+<code class="descname">atom</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of the <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in this
+<a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.cell">
+<code class="descname">cell</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of the <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.dihedral">
+<code class="descname">dihedral</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em>, <em>m</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.dihedral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dihedral angle formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>,
+<code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, accounting for periodic
+boundary conditions. The result is expressed in radians.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.distance">
+<code class="descname">distance</code><span class="sig-paren">(</span><em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the distance between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in this
+<a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, accounting for periodic boundary conditions. The
+result is expressed in angstroms.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a property of this frame with the given <code class="docutils literal notranslate"><span class="pre">name</span></code>, or raise an error
+if the property does not exists.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.guess_topology">
+<code class="descname">guess_topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.guess_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guess the bonds, angles and dihedrals in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>The bonds are guessed using a distance-based algorithm, and then angles
+and dihedrals are guessed from the bonds.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.has_velocities">
+<code class="descname">has_velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.has_velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> contains velocity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.natoms">
+<code class="descname">natoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.natoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current number of atoms in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.out_of_plane">
+<code class="descname">out_of_plane</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em>, <em>m</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.out_of_plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the out of plane distance formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>,
+<code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, accounting for
+periodic boundary conditions. The result is expressed in angstroms.</p>
+<p>This is the distance betweent the atom j and the ikm plane. The j atom
+is the center of the improper dihedral angle formed by i, j, k and m.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.positions">
+<code class="descname">positions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a view into the positions of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>Positions are stored as a <cite>natoms x 3</cite> array by thez runtime, this
+function gives direct access to the corresponding memory as a numpy
+array. Modifying the array will change the positions.</p>
+<p>If the frame is resized (by writing to it, calling
+<a class="reference internal" href="#chemfiles.Frame.resize" title="chemfiles.Frame.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.resize()</span></code></a>, <a class="reference internal" href="#chemfiles.Frame.add_atom" title="chemfiles.Frame.add_atom"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.add_atom()</span></code></a>,
+<a class="reference internal" href="#chemfiles.Frame.remove" title="chemfiles.Frame.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.remove()</span></code></a>), the array is invalidated. Accessing it can
+cause a segfault.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>This modify all the atoms indexes after <code class="docutils literal notranslate"><span class="pre">i</span></code>, and invalidate any array
+obtained using <a class="reference internal" href="#chemfiles.Frame.positions" title="chemfiles.Frame.positions"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.positions()</span></code></a> or
+<a class="reference internal" href="#chemfiles.Frame.velocities" title="chemfiles.Frame.velocities"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.velocities()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.remove_bond">
+<code class="descname">remove_bond</code><span class="sig-paren">(</span><em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.remove_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove any existing bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>
+in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>’s topology.</p>
+<p>This function does nothing if there is no bond between <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.resize">
+<code class="descname">resize</code><span class="sig-paren">(</span><em>natoms</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize the positions, velocities  and topology in this
+<a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, to have space for <cite>natoms</cite> atoms.</p>
+<p>This function may invalidate any array of the positions or the
+velocities if the new size is bigger than the old one. In all cases,
+previous data is conserved. This function conserve the presence or
+absence of velocities.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a property of this frame, with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>.
+The new value overwrite any pre-existing property with the same name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.set_cell">
+<code class="descname">set_cell</code><span class="sig-paren">(</span><em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.set_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> to <code class="docutils literal notranslate"><span class="pre">cell</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.set_step">
+<code class="descname">set_step</code><span class="sig-paren">(</span><em>step</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.set_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> step to <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.set_topology">
+<code class="descname">set_topology</code><span class="sig-paren">(</span><em>topology</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.set_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> to <code class="docutils literal notranslate"><span class="pre">topology</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.step">
+<code class="descname">step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> step, i.e. the frame number in the
+trajectory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.topology">
+<code class="descname">topology</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of the <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Frame.velocities">
+<code class="descname">velocities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a view into the velocities of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>Velocities are stored as a <cite>natoms x 3</cite> array by thez runtime, this
+function gives direct access to the corresponding memory as a numpy
+array. Modifying the array will change the velocities.</p>
+<p>If the frame is resized (by writing to it, calling
+<a class="reference internal" href="#chemfiles.Frame.resize" title="chemfiles.Frame.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.resize()</span></code></a>, <a class="reference internal" href="#chemfiles.Frame.add_atom" title="chemfiles.Frame.add_atom"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.add_atom()</span></code></a>,
+<a class="reference internal" href="#chemfiles.Frame.remove" title="chemfiles.Frame.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.remove()</span></code></a>), the array is invalidated. Accessing it can
+cause a segfault.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="unitcell-class">
+<h2>UnitCell class<a class="headerlink" href="#unitcell-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.CellShape">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">CellShape</code><a class="headerlink" href="#chemfiles.CellShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available cell shapes in Chemfiles:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">CellType.Orthorhombic</span></code>: for cells where the three angles are 90°;</li>
+<li><code class="docutils literal notranslate"><span class="pre">CellType.Triclinic</span></code>: for cells where the three angles may not be 90°;</li>
+<li><code class="docutils literal notranslate"><span class="pre">CellType.Infinite</span></code>: for cells without periodic boundary conditions;</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="chemfiles.UnitCell">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">UnitCell</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em>, <em>alpha=90.0</em>, <em>beta=90.0</em>, <em>gamma=90.0</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>An <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> represent the box containing the atoms, and its
+periodicity.</p>
+<p>An unit cell is fully represented by three lenghts (a, b, c); and three
+angles (alpha, beta, gamma). The angles are stored in degrees, and the
+lenghts in Angstroms. The cell angles are defined as follow: alpha is the
+angles between the cell vectors <cite>b</cite> and <cite>c</cite>; beta as the angle between <cite>a</cite>
+and <cite>c</cite>; and gamma as the angle between <cite>a</cite> and <cite>b</cite>.</p>
+<p>A cell also has a matricial representation, by projecting the three base
+vector into an orthonormal base. We choose to represent such matrix as an
+upper triangular matrix:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="p">|</span> a_x   b_x   c_x <span class="p">|</span>
+<span class="p">|</span>  <span class="m">0</span>    b_y   c_y <span class="p">|</span>
+<span class="p">|</span>  <span class="m">0</span>     <span class="m">0</span>    c_z <span class="p">|</span>
+</pre></div>
+</div>
+<p>Create a new <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> with cell lenghts of <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> and
+<code class="docutils literal notranslate"><span class="pre">c</span></code>, and cell angles <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">beta</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma</span></code>.</p>
+<p>If alpha, beta and gamma are equal to 90.0, the new unit cell shape is
+<code class="docutils literal notranslate"><span class="pre">CellShape.Orthorhombic</span></code>. Else it is <code class="docutils literal notranslate"><span class="pre">CellShape.Infinite</span></code>.</p>
+<dl class="method">
+<dt id="chemfiles.UnitCell.angles">
+<code class="descname">angles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the three angles of this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a>, in degrees.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.lengths">
+<code class="descname">lengths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the three lenghts of this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a>, in Angstroms.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.matrix">
+<code class="descname">matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> matricial representation.</p>
+<p>The matricial representation is obtained by aligning the a vector along
+the <em>x</em> axis and putting the b vector in the <em>xy</em> plane. This make the
+matrix an upper triangular matrix:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="p">|</span> a_x   b_x   c_x <span class="p">|</span>
+<span class="p">|</span>  <span class="m">0</span>    b_y   c_y <span class="p">|</span>
+<span class="p">|</span>  <span class="m">0</span>     <span class="m">0</span>    c_z <span class="p">|</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.set_angles">
+<code class="descname">set_angles</code><span class="sig-paren">(</span><em>alpha</em>, <em>beta</em>, <em>gamma</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.set_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the three angles of this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> to <code class="docutils literal notranslate"><span class="pre">alpha</span></code>,
+<code class="docutils literal notranslate"><span class="pre">beta</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma</span></code>. These values should be in degrees. Setting
+angles is only possible for <code class="docutils literal notranslate"><span class="pre">CellShape.Triclinic</span></code> cells.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.set_lengths">
+<code class="descname">set_lengths</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.set_lengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the three lenghts of this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> to <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> and
+<code class="docutils literal notranslate"><span class="pre">c</span></code>. These values should be in Angstroms.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.set_shape">
+<code class="descname">set_shape</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.set_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the shape of this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> to <code class="docutils literal notranslate"><span class="pre">shape</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.shape">
+<code class="descname">shape</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shape of this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.volume">
+<code class="descname">volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the volume of this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.UnitCell.wrap">
+<code class="descname">wrap</code><span class="sig-paren">(</span><em>vector</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.UnitCell.wrap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap a <code class="docutils literal notranslate"><span class="pre">vector</span></code> in this <a class="reference internal" href="#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a>, and return the wrapped
+vector.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topology-class">
+<h2>Topology class<a class="headerlink" href="#topology-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.Topology">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Topology</code><a class="headerlink" href="#chemfiles.Topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> contains the definition of all the atoms in the
+system, and the liaisons between the atoms (bonds, angles, dihedrals, …).
+It will also contain all the residues information if it is available.</p>
+<p>Create a new empty <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+<dl class="method">
+<dt id="chemfiles.Topology.add_atom">
+<code class="descname">add_atom</code><span class="sig-paren">(</span><em>atom</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.add_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a copy of the <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> <code class="docutils literal notranslate"><span class="pre">atom</span></code> at the end of this
+<a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.add_bond">
+<code class="descname">add_bond</code><span class="sig-paren">(</span><em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.add_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in this
+<a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.add_residue">
+<code class="descname">add_residue</code><span class="sig-paren">(</span><em>residue</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.add_residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> <code class="docutils literal notranslate"><span class="pre">residue</span></code> to this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+<p>The residue <code class="docutils literal notranslate"><span class="pre">id</span></code> must not already be in the topology, and the residue
+must contain only atoms that are not already in another residue.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.angles">
+<code class="descname">angles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.angles_count">
+<code class="descname">angles_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.angles_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.atom">
+<code class="descname">atom</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a copy of the <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> at index <code class="docutils literal notranslate"><span class="pre">i</span></code> from this
+<a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.bonds">
+<code class="descname">bonds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of bonds in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.bonds_count">
+<code class="descname">bonds_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.bonds_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of bonds in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.dihedrals">
+<code class="descname">dihedrals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.dihedrals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of dihedral angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.dihedrals_count">
+<code class="descname">dihedrals_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.dihedrals_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of dihedral angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.impropers">
+<code class="descname">impropers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.impropers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of improper angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.impropers_count">
+<code class="descname">impropers_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.impropers_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of improper angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.natoms">
+<code class="descname">natoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.natoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of atoms in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> at index <cite>i</cite> from this
+<a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+<p>This shifts all the atoms indexes after <code class="docutils literal notranslate"><span class="pre">i</span></code> by 1 (n becomes n-1).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.remove_bond">
+<code class="descname">remove_bond</code><span class="sig-paren">(</span><em>i</em>, <em>j</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.remove_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove any existing bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>
+in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+<p>This function does nothing if there is no bond between <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.residue">
+<code class="descname">residue</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> at index <code class="docutils literal notranslate"><span class="pre">i</span></code> from this
+<a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.residue_for_atom">
+<code class="descname">residue_for_atom</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.residue_for_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> containing the atom at index <code class="docutils literal notranslate"><span class="pre">i</span></code> from
+this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>. If the atom is not in a residue, this
+function returns None.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.residues_count">
+<code class="descname">residues_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.residues_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of residues in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.residues_linked">
+<code class="descname">residues_linked</code><span class="sig-paren">(</span><em>first</em>, <em>second</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.residues_linked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the two <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> <code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">second</span></code> from this
+<a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> are linked together, <em>i.e.</em> if there is a bond
+between one atom in the first residue and one atom in the second one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Topology.resize">
+<code class="descname">resize</code><span class="sig-paren">(</span><em>natoms</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> to contain <code class="docutils literal notranslate"><span class="pre">natoms</span></code> atoms. If the
+new number of atoms is bigger than the current number, new atoms will
+be created with an empty name and type. If it is lower than the current
+number of atoms, the last atoms will be removed, together with the
+associated bonds, angles and dihedrals.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="atom-class">
+<h2>Atom class<a class="headerlink" href="#atom-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.Atom">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Atom</code><span class="sig-paren">(</span><em>name</em>, <em>type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>An <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> is a particle in the current <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>. It
+stores the following atomic properties:</p>
+<ul class="simple">
+<li>atom name;</li>
+<li>atom type;</li>
+<li>atom mass;</li>
+<li>atom charge.</li>
+</ul>
+<p>The atom name is usually an unique identifier (<code class="docutils literal notranslate"><span class="pre">&quot;H1&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;C_a&quot;</span></code>) while
+the atom type will be shared between all particles of the same type:
+<code class="docutils literal notranslate"><span class="pre">&quot;H&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Ow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;CH3&quot;</span></code>.</p>
+<p>Create a new <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> from a <code class="docutils literal notranslate"><span class="pre">name</span></code>, and set the atom type
+to <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<dl class="method">
+<dt id="chemfiles.Atom.atomic_number">
+<code class="descname">atomic_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.atomic_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the atomic number of this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> from its type. If
+the atomic number can not be found, returns 0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.charge">
+<code class="descname">charge</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> charge, in number of the electron charge <em>e</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.covalent_radius">
+<code class="descname">covalent_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.covalent_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the covalent radius of this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> from its type.
+If the radius can not be found, returns 0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.full_name">
+<code class="descname">full_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the full name of this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> from its type. For
+example, the full name of “He” is “Helium”. If the name can not be
+found, returns the empty string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a property of this atom with the given <code class="docutils literal notranslate"><span class="pre">name</span></code>, or raise an error
+if the property does not exists.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.mass">
+<code class="descname">mass</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> mass, in atomic mass units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.name">
+<code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a property of this atom, with the given <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>.
+The new value overwrite any pre-existing property with the same name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set_charge">
+<code class="descname">set_charge</code><span class="sig-paren">(</span><em>charge</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set_charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> charge, in number of the electron charge <em>e</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set_mass">
+<code class="descname">set_mass</code><span class="sig-paren">(</span><em>mass</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> mass, in atomic mass units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set_name">
+<code class="descname">set_name</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> name to <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.set_type">
+<code class="descname">set_type</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.set_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> type to <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.type">
+<code class="descname">type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Atom.vdw_radius">
+<code class="descname">vdw_radius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Atom.vdw_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to get the Van der Waals radius of this <a class="reference internal" href="#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> from its
+type. If the radius can not be found, returns 0.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="residue-class">
+<h2>Residue class<a class="headerlink" href="#residue-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.Residue">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Residue</code><span class="sig-paren">(</span><em>name</em>, <em>resid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> is a group of atoms belonging to the same logical
+unit. They can be small molecules, amino-acids in a protein, monomers in
+polymers, etc.</p>
+<p>Create a new <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> from a <code class="docutils literal notranslate"><span class="pre">name</span></code> and optionally a
+residue id <code class="docutils literal notranslate"><span class="pre">resid</span></code>.</p>
+<dl class="method">
+<dt id="chemfiles.Residue.add_atom">
+<code class="descname">add_atom</code><span class="sig-paren">(</span><em>atom</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Residue.add_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the atom index <code class="docutils literal notranslate"><span class="pre">atom</span></code> in the <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Residue.atoms">
+<code class="descname">atoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Residue.atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the indexes of the atoms in this <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Residue.contains">
+<code class="descname">contains</code><span class="sig-paren">(</span><em>atom</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Residue.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> contains the atom at index <code class="docutils literal notranslate"><span class="pre">atom</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Residue.id">
+<code class="descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Residue.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> index in the initial topology.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Residue.name">
+<code class="descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Residue.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of this <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Residue.natoms">
+<code class="descname">natoms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Residue.natoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current number of atoms in the <a class="reference internal" href="#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="selection-class">
+<h2>Selection class<a class="headerlink" href="#selection-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chemfiles.Selection">
+<em class="property">class </em><code class="descclassname">chemfiles.</code><code class="descname">Selection</code><span class="sig-paren">(</span><em>selection</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select atoms in a <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> with a selection language.</p>
+<p>The selection language is built by combining basic operations. Each basic
+operation follows the <code class="docutils literal notranslate"><span class="pre">&lt;selector&gt;[(&lt;variable&gt;)]</span> <span class="pre">&lt;operator&gt;</span> <span class="pre">&lt;value&gt;</span></code>
+structure, where <code class="docutils literal notranslate"><span class="pre">&lt;operator&gt;</span></code> is a comparison operator in
+<code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">!=</span> <span class="pre">&lt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;</span> <span class="pre">&gt;=</span></code>. Refer to the <a class="reference external" href="selections-doc">full documentation</a> to know the allowed selectors and how to use them.</p>
+<p>Create a new <a class="reference internal" href="#chemfiles.Selection" title="chemfiles.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selection</span></code></a> from the given <code class="docutils literal notranslate"><span class="pre">selection</span></code> string.</p>
+<dl class="method">
+<dt id="chemfiles.Selection.evaluate">
+<code class="descname">evaluate</code><span class="sig-paren">(</span><em>frame</em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Selection.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate a <a class="reference internal" href="#chemfiles.Selection" title="chemfiles.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selection</span></code></a> for a given <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, and
+return a list of matching atoms, either as a list of index or a list
+of tuples of indexes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Selection.size">
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Selection.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the size of this <a class="reference internal" href="#chemfiles.Selection" title="chemfiles.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selection</span></code></a>.</p>
+<p>The size of a selection is the number of atoms we are selecting
+together. This value is 1 for the ‘atom’ context, 2 for the ‘pair’ and
+‘bond’ context, 3 for the ‘three’ and ‘angles’ contextes and 4 for the
+‘four’ and ‘dihedral’ contextes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chemfiles.Selection.string">
+<code class="descname">string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Selection.string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the selection string used to create this <a class="reference internal" href="#chemfiles.Selection" title="chemfiles.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selection</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015-2017, Guillaume Fraux — BSD license.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

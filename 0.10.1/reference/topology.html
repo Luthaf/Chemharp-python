@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Topology class &#8212; Python interface to chemfiles 0.10.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="UnitCell class" href="cell.html" />
+    <link rel="prev" title="Residue class" href="residue.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Python interface to chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Python interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atom.html">Atom class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="residue.html">Residue class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Topology class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell.html">UnitCell class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">Frame class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trajectory.html">Trajectory class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Selection class</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="residue.html" title="Previous Chapter: Residue class"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Residue class</span>
+    </a>
+  </li>
+  <li>
+    <a href="cell.html" title="Next Chapter: UnitCell class"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">UnitCell class &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Python interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atom.html">Atom class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="residue.html">Residue class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Topology class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell.html">UnitCell class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">Frame class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trajectory.html">Trajectory class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Selection class</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="topology-class">
+<h1>Topology class<a class="headerlink" href="#topology-class" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="chemfiles.BondOrder">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">chemfiles.</span></span><span class="sig-name descname"><span class="pre">BondOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.BondOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Possible bond orders are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BondOrder.Unknown</span></code>: the bond order is not specified</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BondOrder.Single</span></code>: bond order for single bond</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BondOrder.Double</span></code>: bond order for double bond</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BondOrder.Triple</span></code>: bond order for triple bond</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BondOrder.Quadruple</span></code>: bond order for quadruple bond (present in some metals)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BondOrder.Quintuplet</span></code>: bond order for quintuplet bond (present in some metals)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BondOrder.Amide</span></code>: bond order for amide bond</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BondOrder.Aromatic</span></code>: bond order for aromatic bond</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="chemfiles.Topology">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">chemfiles.</span></span><span class="sig-name descname"><span class="pre">Topology</span></span><a class="headerlink" href="#chemfiles.Topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> contains the definition of all the atoms in the
+system, and the liaisons between the atoms (bonds, angles, dihedrals, …).
+It will also contain all the residues information if it is available.</p>
+<p>Create a new empty <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.add_bond">
+<span class="sig-name descname"><span class="pre">add_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.add_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in this
+<a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>, optionally setting the bond <code class="docutils literal notranslate"><span class="pre">order</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Topology.angles">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">angles</span></span><a class="headerlink" href="#chemfiles.Topology.angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.angles_count">
+<span class="sig-name descname"><span class="pre">angles_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.angles_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Topology.bonds">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bonds</span></span><a class="headerlink" href="#chemfiles.Topology.bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of bonds in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.bonds_count">
+<span class="sig-name descname"><span class="pre">bonds_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.bonds_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of bonds in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.bonds_order">
+<span class="sig-name descname"><span class="pre">bonds_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.bonds_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the bonds order corresponding to the bond between atoms i and j</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Topology.bonds_orders">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bonds_orders</span></span><a class="headerlink" href="#chemfiles.Topology.bonds_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of bonds order for each bond in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.clear_bonds">
+<span class="sig-name descname"><span class="pre">clear_bonds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.clear_bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all existing bonds, angles, dihedral angles and improper dihedral
+angles in this topology.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Topology.dihedrals">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">dihedrals</span></span><a class="headerlink" href="#chemfiles.Topology.dihedrals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of dihedral angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.dihedrals_count">
+<span class="sig-name descname"><span class="pre">dihedrals_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.dihedrals_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of dihedral angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Topology.impropers">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">impropers</span></span><a class="headerlink" href="#chemfiles.Topology.impropers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of improper angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.impropers_count">
+<span class="sig-name descname"><span class="pre">impropers_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.impropers_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of improper angles in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.remove_bond">
+<span class="sig-name descname"><span class="pre">remove_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.remove_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove any existing bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>
+in this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>.</p>
+<p>This function does nothing if there is no bond between <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.residue_for_atom">
+<span class="sig-name descname"><span class="pre">residue_for_atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.residue_for_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get read-only access to the <a class="reference internal" href="residue.html#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> containing the atom at
+the given <code class="docutils literal notranslate"><span class="pre">index</span></code> from this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a>; or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the
+atom is not part of a residue.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.residues_linked">
+<span class="sig-name descname"><span class="pre">residues_linked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.residues_linked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the two <a class="reference internal" href="residue.html#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> <code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">second</span></code> from this
+<a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> are linked together, <em>i.e.</em> if there is a bond
+between one atom in the first residue and one atom in the second one.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Topology.resize">
+<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Topology.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize this <a class="reference internal" href="#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> to contain <code class="docutils literal notranslate"><span class="pre">count</span></code> atoms. If the
+new number of atoms is bigger than the current number, new atoms will
+be created with an empty name and type. If it is lower than the current
+number of atoms, the last atoms will be removed, together with the
+associated bonds, angles and dihedrals.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

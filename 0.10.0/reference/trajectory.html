@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trajectory class &#8212; Python interface to chemfiles 0.10.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Selection class" href="selection.html" />
+    <link rel="prev" title="Frame class" href="frame.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Python interface to chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Python interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atom.html">Atom class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="residue.html">Residue class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">Topology class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell.html">UnitCell class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">Frame class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Trajectory class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Selection class</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="frame.html" title="Previous Chapter: Frame class"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Frame class</span>
+    </a>
+  </li>
+  <li>
+    <a href="selection.html" title="Next Chapter: Selection class"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Selection class &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Python interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atom.html">Atom class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="residue.html">Residue class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">Topology class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell.html">UnitCell class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">Frame class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Trajectory class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Selection class</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="trajectory-class">
+<h1>Trajectory class<a class="headerlink" href="#trajectory-class" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="chemfiles.Trajectory">
+<em class="property">class </em><code class="sig-prename descclassname">chemfiles.</code><code class="sig-name descname">Trajectory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'r'</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> represent a physical file from which we can read
+<a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>Open the file at the given <code class="docutils literal notranslate"><span class="pre">path</span></code> using the given <code class="docutils literal notranslate"><span class="pre">mode</span></code> and
+optional file <code class="docutils literal notranslate"><span class="pre">format</span></code>.</p>
+<p>Valid modes are <code class="docutils literal notranslate"><span class="pre">'r'</span></code> for read, <code class="docutils literal notranslate"><span class="pre">'w'</span></code> for write and <code class="docutils literal notranslate"><span class="pre">'a'</span></code> for
+append.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">format</span></code> parameter is needed when the file format does not match
+the extension, or when there is not standard extension for this format.
+If <cite>format</cite> is an empty string, the format will be guessed from the
+file extension.</p>
+<dl class="py method">
+<dt id="chemfiles.Trajectory.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and write any buffered content to the
+file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.ffi">
+<em class="property">property </em><code class="sig-name descname">ffi</code><a class="headerlink" href="#chemfiles.Trajectory.ffi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow to access the C interface from any instance of CxxPointer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.from_const_ptr">
+<em class="property">classmethod </em><code class="sig-name descname">from_const_ptr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">origin</span></em>, <em class="sig-param"><span class="n">ptr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.from_const_ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance from a const pointer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.from_mutable_ptr">
+<em class="property">classmethod </em><code class="sig-name descname">from_mutable_ptr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">origin</span></em>, <em class="sig-param"><span class="n">ptr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.from_mutable_ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance from a mutable pointer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.mut_ptr">
+<em class="property">property </em><code class="sig-name descname">mut_ptr</code><a class="headerlink" href="#chemfiles.Trajectory.mut_ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <strong>mutable</strong> C++ pointer for this object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.nsteps">
+<em class="property">property </em><code class="sig-name descname">nsteps</code><a class="headerlink" href="#chemfiles.Trajectory.nsteps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current number of steps in this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.path">
+<em class="property">property </em><code class="sig-name descname">path</code><a class="headerlink" href="#chemfiles.Trajectory.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the path used to open this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.ptr">
+<em class="property">property </em><code class="sig-name descname">ptr</code><a class="headerlink" href="#chemfiles.Trajectory.ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <strong>const</strong> C++ pointer for this object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next step of this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and return the
+corresponding <a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.read_step">
+<code class="sig-name descname">read_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">step</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.read_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a specific <code class="docutils literal notranslate"><span class="pre">step</span></code> in this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and return the
+corresponding <a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.set_cell">
+<code class="sig-name descname">set_cell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cell</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.set_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="cell.html#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> associated with this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>
+to a copy of <code class="docutils literal notranslate"><span class="pre">cell</span></code>.</p>
+<p>This <a class="reference internal" href="cell.html#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> will be used when reading and writing the
+files, replacing any unit cell in the frames or files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.set_topology">
+<code class="sig-name descname">set_topology</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">topology</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.set_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="topology.html#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> associated with this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+<p>The new topology will be used when reading and writing the files,
+replacing any topology in the frames or files.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">topology</span></code> parameter is a <a class="reference internal" href="topology.html#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> instance, it is
+used directly. If the <code class="docutils literal notranslate"><span class="pre">topology</span></code> parameter is a string, the first
+<a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> of the corresponding file is read, and the topology of
+this frame is used.</p>
+<p>When reading from a file, if <code class="docutils literal notranslate"><span class="pre">format</span></code> is not the empty string, it is
+used as the file format instead of guessing it from the file extension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.Trajectory.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Trajectory.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a <a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> to this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="chemfiles.MemoryTrajectory">
+<em class="property">class </em><code class="sig-prename descclassname">chemfiles.</code><code class="sig-name descname">MemoryTrajectory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'r'</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#chemfiles.MemoryTrajectory" title="chemfiles.MemoryTrajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryTrajectory</span></code></a> allow to read/write in-memory data as though
+it was a formatted file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">format</span></code> parameter is always required.</p>
+<p>When reading (<code class="docutils literal notranslate"><span class="pre">mode</span></code> is <code class="docutils literal notranslate"><span class="pre">'r'</span></code>), the <code class="docutils literal notranslate"><span class="pre">data</span></code> parameter will be used
+as the formatted file.</p>
+<p>When writing (<code class="docutils literal notranslate"><span class="pre">mode</span></code> is <code class="docutils literal notranslate"><span class="pre">'w'</span></code>), the <code class="docutils literal notranslate"><span class="pre">data</span></code> parameter is ignored.
+To get the memory buffer containing everything already written, use the
+<a class="reference internal" href="#chemfiles.MemoryTrajectory.buffer" title="chemfiles.MemoryTrajectory.buffer"><code class="xref py py-func docutils literal notranslate"><span class="pre">buffer()</span></code></a> function.</p>
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.buffer">
+<code class="sig-name descname">buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data written to this in-memory trajectory. This is not valid to
+call when reading in-memory data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and write any buffered content to the
+file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.ffi">
+<em class="property">property </em><code class="sig-name descname">ffi</code><a class="headerlink" href="#chemfiles.MemoryTrajectory.ffi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow to access the C interface from any instance of CxxPointer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.from_const_ptr">
+<em class="property">classmethod </em><code class="sig-name descname">from_const_ptr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">origin</span></em>, <em class="sig-param"><span class="n">ptr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.from_const_ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance from a const pointer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.from_mutable_ptr">
+<em class="property">classmethod </em><code class="sig-name descname">from_mutable_ptr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">origin</span></em>, <em class="sig-param"><span class="n">ptr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.from_mutable_ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new instance from a mutable pointer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.mut_ptr">
+<em class="property">property </em><code class="sig-name descname">mut_ptr</code><a class="headerlink" href="#chemfiles.MemoryTrajectory.mut_ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <strong>mutable</strong> C++ pointer for this object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.nsteps">
+<em class="property">property </em><code class="sig-name descname">nsteps</code><a class="headerlink" href="#chemfiles.MemoryTrajectory.nsteps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current number of steps in this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.path">
+<em class="property">property </em><code class="sig-name descname">path</code><a class="headerlink" href="#chemfiles.MemoryTrajectory.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the path used to open this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.ptr">
+<em class="property">property </em><code class="sig-name descname">ptr</code><a class="headerlink" href="#chemfiles.MemoryTrajectory.ptr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the <strong>const</strong> C++ pointer for this object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next step of this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and return the
+corresponding <a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.read_step">
+<code class="sig-name descname">read_step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">step</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.read_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a specific <code class="docutils literal notranslate"><span class="pre">step</span></code> in this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a> and return the
+corresponding <a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.set_cell">
+<code class="sig-name descname">set_cell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cell</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.set_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="cell.html#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> associated with this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>
+to a copy of <code class="docutils literal notranslate"><span class="pre">cell</span></code>.</p>
+<p>This <a class="reference internal" href="cell.html#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> will be used when reading and writing the
+files, replacing any unit cell in the frames or files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.set_topology">
+<code class="sig-name descname">set_topology</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">topology</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.set_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <a class="reference internal" href="topology.html#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> associated with this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+<p>The new topology will be used when reading and writing the files,
+replacing any topology in the frames or files.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">topology</span></code> parameter is a <a class="reference internal" href="topology.html#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> instance, it is
+used directly. If the <code class="docutils literal notranslate"><span class="pre">topology</span></code> parameter is a string, the first
+<a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> of the corresponding file is read, and the topology of
+this frame is used.</p>
+<p>When reading from a file, if <code class="docutils literal notranslate"><span class="pre">format</span></code> is not the empty string, it is
+used as the file format instead of guessing it from the file extension.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="chemfiles.MemoryTrajectory.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.MemoryTrajectory.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a <a class="reference internal" href="frame.html#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> to this <a class="reference internal" href="#chemfiles.Trajectory" title="chemfiles.Trajectory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Trajectory</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

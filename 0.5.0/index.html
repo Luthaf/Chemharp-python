@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python interface to chemfiles &mdash; Python interface to chemfiles 0.5.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Python interface to chemfiles 0.5.0 documentation" href="#" />
+    <link rel="next" title="Usage examples" href="examples.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          Python interface to chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.5</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Python interface reference</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Python interface to chemfiles</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#pre-built-binaries">Pre-built binaries</a></li>
+<li><a class="reference internal" href="#build-from-sources">Build from sources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-documentation">User documentation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="examples.html" title="Next Chapter: Usage examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Usage examples &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/index.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="python-interface-to-chemfiles">
+<h1>Python interface to chemfiles<a class="headerlink" href="#python-interface-to-chemfiles" title="Permalink to this headline">¶</a></h1>
+<p>This is the documentation for the Python interface to the <a class="reference external" href="https://github.com/chemfiles/chemfiles">chemfiles</a> library. This
+interface uses Numpy, and is compatible with Python 2.7 and 3.4+, and Numpy 1.8 to
+1.10.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pre-built-binaries">
+<h3>Pre-built binaries<a class="headerlink" href="#pre-built-binaries" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to install this interface is to use the the
+[<code class="docutils literal"><span class="pre">conda</span></code>](<a class="reference external" href="http://conda.pydata.org/docs/">http://conda.pydata.org/docs/</a>) package manager. It is part of the
+Anaconda Python distribution, and can be installed separatly using the Miniconda
+distribution. The command to install the chemfiles Python module with conda is:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>conda install -c https://conda.anaconda.org/luthaf chemfiles
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-from-sources">
+<h3>Build from sources<a class="headerlink" href="#build-from-sources" title="Permalink to this headline">¶</a></h3>
+<p>You can also install this python module from sources if you have all the
+[dependencies](<a class="reference external" href="http://chemfiles.readthedocs.org/en/latest/installation.html">http://chemfiles.readthedocs.org/en/latest/installation.html</a>) of the
+C++ library installed on your computer.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/chemfiles/chemfiles.py
+<span class="nb">cd</span> chemfiles.py
+git submodule update --init
+pip install .
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="user-documentation">
+<h2>User documentation<a class="headerlink" href="#user-documentation" title="Permalink to this headline">¶</a></h2>
+<p>This section contains example of how to use <code class="docutils literal"><span class="pre">chemfiles</span></code>, and the complete interface
+reference for all the types and subroutines in chemfiles.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Usage examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#read-a-single-frame-indexes-py">Read a single frame (indexes.py)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#read-multiple-frames-rmsd-py">Read Multiple frames (rmsd.py)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#write-frames-convert-py">Write frames (convert.py)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Python interface reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#module-chemfiles.logging">Error and logging functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#trajectory-class">Trajectory class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#frame-class">Frame class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#unitcell-class">UnitCell class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#topology-class">Topology class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference.html#atom-class">Atom class</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Guillaume Fraux — MPLv2 licence.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

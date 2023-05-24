@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Frame class &#8212; Python interface to chemfiles 0.10.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Trajectory class" href="trajectory.html" />
+    <link rel="prev" title="UnitCell class" href="cell.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Python interface to chemfiles</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.10</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Navigation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Python interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atom.html">Atom class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="residue.html">Residue class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">Topology class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell.html">UnitCell class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frame class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trajectory.html">Trajectory class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Selection class</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="cell.html" title="Previous Chapter: UnitCell class"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; UnitCell class</span>
+    </a>
+  </li>
+  <li>
+    <a href="trajectory.html" title="Next Chapter: Trajectory class"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Trajectory class &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Python interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="atom.html">Atom class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="residue.html">Residue class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topology.html">Topology class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell.html">UnitCell class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frame class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trajectory.html">Trajectory class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Selection class</a></li>
+</ul>
+
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="frame-class">
+<h1>Frame class<a class="headerlink" href="#frame-class" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="chemfiles.Frame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chemfiles.</span></span><span class="sig-name descname"><span class="pre">Frame</span></span><a class="headerlink" href="#chemfiles.Frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> contains data from one simulation step: the current
+unit cell, the topology, the positions, and the velocities of the particles
+in the system. If some information is missing (topology or velocity or unit
+cell), the corresponding data is filled with a default value.</p>
+<p>Create an empty <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> that will be resized by the runtime
+as needed.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.add_atom">
+<span class="sig-name descname"><span class="pre">add_atom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_atom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a copy of the <a class="reference internal" href="atom.html#chemfiles.Atom" title="chemfiles.Atom"><code class="xref py py-class docutils literal notranslate"><span class="pre">Atom</span></code></a> <code class="docutils literal notranslate"><span class="pre">atom</span></code> and the corresponding
+<code class="docutils literal notranslate"><span class="pre">position</span></code> and <code class="docutils literal notranslate"><span class="pre">velocity</span></code> to this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">velocity</span></code> can be <code class="docutils literal notranslate"><span class="pre">None</span></code> if no velocity is associated with the
+atom.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.add_bond">
+<span class="sig-name descname"><span class="pre">add_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> in this
+<a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>’s topology, optionally setting the bond <code class="docutils literal notranslate"><span class="pre">order</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.add_residue">
+<span class="sig-name descname"><span class="pre">add_residue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">residue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_residue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the <a class="reference internal" href="residue.html#chemfiles.Residue" title="chemfiles.Residue"><code class="xref py py-class docutils literal notranslate"><span class="pre">Residue</span></code></a> <code class="docutils literal notranslate"><span class="pre">residue</span></code> to this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>’s
+topology.</p>
+<p>The residue <code class="docutils literal notranslate"><span class="pre">id</span></code> must not already be in the topology, and the residue
+must contain only atoms that are not already in another residue.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.add_velocities">
+<span class="sig-name descname"><span class="pre">add_velocities</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.add_velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add velocity data to this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>The velocities are initialized to zero. If the frame already contains
+velocities, this function does nothing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.angle">
+<span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the angle (in radians) formed by the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>
+and <code class="docutils literal notranslate"><span class="pre">k</span></code> in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, taking periodic boundary conditions
+into account.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Frame.cell">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cell</span></span><a class="headerlink" href="#chemfiles.Frame.cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a mutable reference to the <a class="reference internal" href="cell.html#chemfiles.UnitCell" title="chemfiles.UnitCell"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnitCell</span></code></a> of this
+<a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>. Any modification to the cell will be reflected in
+the frame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.clear_bonds">
+<span class="sig-name descname"><span class="pre">clear_bonds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.clear_bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove all existing bonds, angles, dihedral angles and improper dihedral
+angles in this frame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.dihedral">
+<span class="sig-name descname"><span class="pre">dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.dihedral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dihedral angle (in radians) formed by the atoms at indexes
+<code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, taking periodic
+boundary conditions into account.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the distance (in Ångströms) between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and
+<code class="docutils literal notranslate"><span class="pre">j</span></code> in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, taking periodic boundary conditions
+into account.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.guess_bonds">
+<span class="sig-name descname"><span class="pre">guess_bonds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.guess_bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guess the bonds, angles and dihedrals in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>The bonds are guessed using a distance-based algorithm, and then angles
+and dihedrals are guessed from the bonds.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.has_velocities">
+<span class="sig-name descname"><span class="pre">has_velocities</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.has_velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a> contains velocity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.list_properties">
+<span class="sig-name descname"><span class="pre">list_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.list_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of all properties in this frame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.out_of_plane">
+<span class="sig-name descname"><span class="pre">out_of_plane</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.out_of_plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the out of plane distance (in Ångströms) formed by the atoms at
+indexes <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code> and <code class="docutils literal notranslate"><span class="pre">m</span></code> in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, taking
+periodic boundary conditions into account.</p>
+<p>This is the distance betweent the atom j and the ikm plane. The j atom
+is the center of the improper dihedral angle formed by i, j, k and m.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Frame.positions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">positions</span></span><a class="headerlink" href="#chemfiles.Frame.positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a view into the positions of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>This function gives direct access to the positions as a numpy array.
+Modifying the array will change the positions in the frame.</p>
+<p>If the frame is resized (by writing to it, calling
+<a class="reference internal" href="#chemfiles.Frame.resize" title="chemfiles.Frame.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.resize()</span></code></a>, <a class="reference internal" href="#chemfiles.Frame.add_atom" title="chemfiles.Frame.add_atom"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.add_atom()</span></code></a>,
+<a class="reference internal" href="#chemfiles.Frame.remove" title="chemfiles.Frame.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.remove()</span></code></a>), the array is invalidated. Accessing it can
+cause a segfault.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.properties_count">
+<span class="sig-name descname"><span class="pre">properties_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.properties_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of properties in this frame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the atom at the given <code class="docutils literal notranslate"><span class="pre">index</span></code> in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>This shifts all the atoms indexes larger than <code class="docutils literal notranslate"><span class="pre">index</span></code> by 1  (<code class="docutils literal notranslate"><span class="pre">n</span></code>
+becomes <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code>); and invalidate any array obtained using
+<a class="reference internal" href="#chemfiles.Frame.positions" title="chemfiles.Frame.positions"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.positions()</span></code></a> or <a class="reference internal" href="#chemfiles.Frame.velocities" title="chemfiles.Frame.velocities"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.velocities()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.remove_bond">
+<span class="sig-name descname"><span class="pre">remove_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.remove_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove any existing bond between the atoms at indexes <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>
+in this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>’s topology.</p>
+<p>This function does nothing if there is no bond between <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chemfiles.Frame.resize">
+<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemfiles.Frame.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize the positions, velocities and topology in this
+<a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, to have space for <cite>count</cite> atoms.</p>
+<p>This function may invalidate any array of the positions or the
+velocities if the new size is bigger than the old one. In all cases,
+previous data is conserved. This function conserve the presence or
+absence of velocities.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Frame.step">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">step</span></span><a class="headerlink" href="#chemfiles.Frame.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the step of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>, i.e. the frame number in the
+trajectory.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Frame.topology">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">topology</span></span><a class="headerlink" href="#chemfiles.Frame.topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get read-only access to the <a class="reference internal" href="topology.html#chemfiles.Topology" title="chemfiles.Topology"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topology</span></code></a> of this
+<a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="chemfiles.Frame.velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">velocities</span></span><a class="headerlink" href="#chemfiles.Frame.velocities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a view into the velocities of this <a class="reference internal" href="#chemfiles.Frame" title="chemfiles.Frame"><code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></a>.</p>
+<p>This function gives direct access to the velocities as a numpy array.
+Modifying the array will change the velocities in the frame.</p>
+<p>If the frame is resized (by writing to it, calling
+<a class="reference internal" href="#chemfiles.Frame.resize" title="chemfiles.Frame.resize"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.resize()</span></code></a>, <a class="reference internal" href="#chemfiles.Frame.add_atom" title="chemfiles.Frame.add_atom"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.add_atom()</span></code></a>,
+<a class="reference internal" href="#chemfiles.Frame.remove" title="chemfiles.Frame.remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">Frame.remove()</span></code></a>), the array is invalidated. Accessing it can
+cause a segfault.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+  <footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="pull-left">
+        &copy; Copyright Guillaume Fraux and contributors.
+    </p>
+    <p class="text-center">
+        BSD licensed on <a href="https://github.com/chemfiles/chemfiles">Github</a>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>
