@@ -1,7 +1,6 @@
 import copy
 import unittest
 
-import numpy as np
 from _utils import remove_warnings
 
 from chemfiles import ChemfilesError, Residue

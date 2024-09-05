@@ -55,7 +55,7 @@ class ResidueAtoms(object):
             yield self[i]
 
     def __repr__(self):
-        return "[" + ", ".join([i.__repr__() for i in self]) + "]"
+        return "[" + ", ".join([str(int(i)) for i in self]) + "]"
 
     def append(self, atom):
         """Add the atom index ``atom`` in the :py:class:`Residue`."""
